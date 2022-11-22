@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="cat">
+    <ul>
+        {% for category in category %}
+        <span><a href="/shop/{{ category.id }}/">
+               {{ category.name }}</a>
+
+        {% endfor %}
+        </span>
+    </ul>
+</div>
+
+{% endblock %}

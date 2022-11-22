@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <h1>product</h1>
+        <p>product models</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row mx-auto">
+        {% for products in products %}
+        <div class="my_pruduct com-9 col-sm-6 col-md4 col-lg-4">
+            <div class="card text-center" style="width: 18rem;">
+                <a href=""> <img class="card-img-top my_image" src="{{products.image.url}}" alt="{product .name}}"></a>
+                <div>
+                    <h4> <a href="/shop/{{ products.id }}/">{{ products.name }}</a></h4>
+
+                    <p>{{products.price}}</p>
+                    <a href="{% url 'shop:delete' products.id %}">삭제하기</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+</div>
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
+{% endblock %}

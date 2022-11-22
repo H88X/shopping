@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+<div class="container">
+<center>
+<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+ <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+<table class="table my_custom_table">
+                <thread clss="my_custom_thread">
+                     <th> <img src = "{{productdetails.image.url}}" alt="{{product.name}}" width="500" height="625"></th><br>
+                    <tr>
+                        <th>
+                             product :{{productdetails.name}}<br><br>
+                             KRW :{{productdetails.price}}<br><br>
+                            description : <br>{{productdetails.description}}<br>
+                        </th>
+                    </tr>
+                </thread>
+                <tbody>
+                    <tr></tr>
+                    <tr>
+                        <td class="text-center">
+                            <strong> <a class="btn btn-secondary" href="{% url 'cart:add_cart' productdetails.id %}">Add to Cart</a>  </strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+</div>
+</div>
+</div>
+</center>
+{% endblock %}
